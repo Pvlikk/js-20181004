@@ -1,7 +1,7 @@
 import Component from '../../component.js';
 
 export default class PhoneCatalog extends Component {
-  constructor({ element, phones, onPhoneSelected }) {
+  constructor({ element, phones, onPhoneSelected}) {
     super({ element });
 
     this._phones = phones;
@@ -11,13 +11,15 @@ export default class PhoneCatalog extends Component {
 
     this._element.addEventListener('click', (event) => {
       let phoneElement = event.target.closest('[data-element="phone-item"]');
-
-      if (!phoneElement) {
+        console.log(phoneElement);
+        if (!phoneElement) {
         return;
       }
 
       this._onPhoneSelected(phoneElement.dataset.phoneId);
     });
+
+
   }
 
   _render() {
